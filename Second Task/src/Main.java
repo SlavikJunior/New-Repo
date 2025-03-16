@@ -28,7 +28,7 @@ class Main{
 		list3.add(2000);
 		try {
 			list3.remove(1);
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 		
@@ -51,13 +51,13 @@ class Main{
 		System.out.println(list3);
 		try {
 			list3.set(100500, 0);
-		} catch(IllegalArgumentException e) {
+		} catch(IndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
 			list3.set(100500, 1000);
-		} catch(IllegalArgumentException e) {
+		} catch(IndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 
@@ -66,13 +66,13 @@ class Main{
 		list2.add(228);
 		try {
 			System.out.println(list2.get(0));
-		} catch(IllegalArgumentException e) {
+		} catch(IndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
 			System.out.println(list2.get(1000));
-		} catch(IllegalArgumentException e) {
+		} catch(IndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 	}

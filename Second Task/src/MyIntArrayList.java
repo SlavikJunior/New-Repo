@@ -5,14 +5,14 @@ public class MyIntArrayList implements MyIntList {
 	private int[] storage = new int[capacity];
 
 	@Override
-	public void remove(int id) throws IllegalArgumentException{
+	public void remove(int id){
 		if ((id >= 0) && id < size) {
 			for (int i = id; i < (size - 1); i++) {
 				storage[i] = storage[i + 1];
 			}
 			size--;
 		} else {
-			throw new IllegalArgumentException("Попытка удаления элемента" +
+			throw new IndexOutOfBoundsException("Попытка удаления элемента" +
 			  "по несуществующему индексу!");
 		}
 	}
@@ -36,11 +36,11 @@ public class MyIntArrayList implements MyIntList {
 	}
 
 	@Override
-	public void set(int value, int pos) throws IllegalArgumentException{
+	public void set(int value, int pos){
 		if ((pos >= 0) && (pos < size)) {
 			storage[pos] = value;	
 		} else {
-			throw new IllegalArgumentException("Попытка установки значения" +
+			throw new IndexOutOfBoundsException("Попытка установки значения" +
 				 " по несуществующему индексу!");
 		}
 	}
@@ -70,10 +70,10 @@ public class MyIntArrayList implements MyIntList {
 	}
 
 	@Override 
-	public int get(int id) throws IllegalArgumentException{
+	public int get(int id){
 		if ((id >= 0) && (id < size)) {
 			return storage[id];	
-		} throw new IllegalArgumentException("Обращение по " + 
+		} throw new IndexOutOfBoundsException("Обращение по " +
 			 "несуществующему индексу!");
 	}
 
@@ -117,8 +117,8 @@ public class MyIntArrayList implements MyIntList {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < size; i++) {
-			sb.append(storage[i]);
-			sb.append(" ");
+			sb.append(storage[i] + " ");
+			// sb.append(" ");
 		}
 		return sb.toString();
 	}	
